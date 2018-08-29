@@ -1,6 +1,10 @@
-from django.shortcuts import render
+import datetime
+
+from django.core.urlresolvers import reverse_lazy
 from django.views import generic
+
 from .models import Thing
+
 
 # Create your views here.
 class HomeView(generic.ListView):
@@ -9,3 +13,22 @@ class HomeView(generic.ListView):
 
     def get_queryset(self):
         return Thing.objects.all()
+
+
+class ThingView(generic.DetailView):
+    model = Thing
+    template_name = 'the_things_list/view.html'
+
+
+class CreateView(generic.edit.CreateView):
+    model = Thing
+    fields = ['title', 'text', 'author']
+
+    def form_valid(self, form):
+        form.instance.LastEdit = datetime.datetime.now()
+        return super(CreateView, self).form_valid(form)
+
+
+class DeleteThing(generic.edit.DeleteView):
+    model = Thing
+    success_url = reverse_lazy('the_things_list:index')

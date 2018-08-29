@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'the_things_list.apps.TheThingsListConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

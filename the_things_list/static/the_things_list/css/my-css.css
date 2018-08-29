@@ -1,0 +1,15 @@
+.well{
+    background-color: rgba(245, 245, 245, 0.4);
+
+}
+.control-group {
+    margin-bottom:15px;
+}
+#logIn{
+    text-decoration:none;
+
+}
+#logIn:focus{
+    color: rgba(255,255,255,.8);
+    text-decoration:none;
+}

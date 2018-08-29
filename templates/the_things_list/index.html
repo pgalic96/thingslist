@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View All Things</title>
-</head>
-<body>
+{% extends 'the_things_list/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+
+{% block body %}
+    {% if all_things %}
+        <div id="homeDiv" class="container-fluid" style="margin-bottom:250px;">
+        <div class="col-sm-12">
+            <h1 align="center">All Things</h1>
+        </div>
+
+
+        {% for thing in all_things %}
+            <div class="col-sm-4 col-lg-2">
+                <div class="thumbnail" >
+                    <!--<center><a href="{% url 'blog:post' post.id %}">{{ post.title }} </a></center>
+                    <div class="caption" style="margin-top: 30px;">
+                        <h4>by {{ post.author.username }}</h4>
+                        {% if post.author.username == request.user.username %}
+                            <form action="{% url 'blog:post-delete' post.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="post_id" value="{{ post.id }}"/>
+
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </button>
+
+                            </form> -->
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+
+        {% endfor %}
+
+    {% else %}
+        <div id="homeDiv" class="container-fluid"><h3>No posts to show</h3></div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

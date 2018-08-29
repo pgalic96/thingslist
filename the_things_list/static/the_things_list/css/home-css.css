@@ -1,5 +1,7 @@
 #homeDiv{
     margin-top:50px;
+    padding-top:2em;
+    position: relative;
 }
 body{
     background:url('../img/home.jpg')

@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View a Thing</title>
-</head>
-<body>
+{% extends 'the_things_list/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block body %}
+    <link href="{% static 'the_things_list/css/post-css.css' %}" rel="stylesheet">
+    <div id="homeDiv" class="container-fluid">
+        <div id="postDiv" class="container-fluid" style="margin-bottom:150px;">
+
+            <h1>{{ thing.title }}</h1>
+            <p class="lead">{{ thing.text }}</p>
+            <div class="caption" style="margin-top: 30px;">
+                        <h4>by {{ thing.author }}</h4>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

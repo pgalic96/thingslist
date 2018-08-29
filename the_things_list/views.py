@@ -1,5 +1,7 @@
 import datetime
 
+from django.utils import timezone
+
 from django.core.urlresolvers import reverse_lazy
 from django.views import generic
 
@@ -25,7 +27,6 @@ class CreateView(generic.edit.CreateView):
     fields = ['title', 'text', 'author']
 
     def form_valid(self, form):
-        form.instance.LastEdit = datetime.datetime.now()
         return super(CreateView, self).form_valid(form)
 
 

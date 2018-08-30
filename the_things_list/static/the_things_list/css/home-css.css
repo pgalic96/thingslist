@@ -3,9 +3,7 @@
     padding-top:2em;
     position: relative;
 }
-body{
-    background:url('../img/home.jpg')
-}
+
 #userNavBar{
     background-color: #000000;
     border-color: #000000;

@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.utils.crypto import get_random_string
 from django.views import generic
-
+from django.contrib.sites.models import Site
 from .forms import ContactForm
 from .models import Thing
 
@@ -42,11 +42,13 @@ class CreateView(generic.edit.CreateView):
     def form_valid(self, form):
         # random 32 character long string is created
         r_str = get_random_string(length=32)
-        # current_domain = Site.objects.get_current().domain
-        full_url = "127.0.0.1:8000/edit/" + r_str
-        # while Thing.objects.filter(random_str=r_str) is not 0:
-        #   r_str = get_random_string(length=32)
+        # get a site domain
+        current_domain = Site.objects.get_current().domain
+        # generate a full editing url
+        full_url = current_domain + "/edit/" + r_str
+        # save random token to the Thing object for future mapping
         form.instance.random_str = r_str
+        # send an email to the user with editing url
         send_mail('link for editing', full_url, 'from@example.com', [form.instance.author], fail_silently=False)
         return super(CreateView, self).form_valid(form)
 

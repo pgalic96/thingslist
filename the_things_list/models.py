@@ -12,7 +12,7 @@ class Thing(models.Model):
     random_str = models.CharField(max_length=32, unique=True)
 
     def get_absolute_url(self):
-        return reverse('the_things_list:things-details',
+        return reverse('the_things_list:thing-details',
                        kwargs={'pk': self.pk})
 
     def __str__(self):

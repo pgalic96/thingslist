@@ -21,3 +21,9 @@ If the `models.py` file is updated, you first want to run:
 python manage.py makemigrations
 python manage.py migrate
 ```
+# Build procedure
+Since in this project I am using only Python and Javascript which are interpreted languages, there is no need for build
+procedure.
+
+# Installation procedure
+## Required packages

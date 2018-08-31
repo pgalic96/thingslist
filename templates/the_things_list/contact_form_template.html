@@ -1,0 +1,53 @@
+{% extends 'the_things_list/base.html' %}
+{% block body %}
+    <div id="homeDiv" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+
+                <div class="panel-body">
+                    <div id="postDiv" class="container-fluid" style="margin-bottom:50px;">
+
+                        <h4>Contact {{ thing.author }} about {{ thing.title }}</h4>
+
+                    </div>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="comment_text">
+                                Your e-mail
+                            </label>
+                            <div class="col-sm-10">
+                                            <textarea rows="1" cols="50" id="author" maxlength="500"
+                                                      name="author"
+                                            ></textarea>
+                            </div>
+                            <label class="control-label col-sm-2" for="comment_text">
+                                Message
+                            </label>
+                            <div class="col-sm-10">
+                                            <textarea rows="4" cols="50" id="message" maxlength="500"
+                                                      name="message"
+                                            ></textarea>
+                            </div>
+
+                            <div class="col-sm-offset-2 col-sm-10">
+
+                                <button type="submit" class="btn btn-success">Submit</button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -7,11 +7,16 @@
         <div id="postDiv" class="container-fluid" style="margin-bottom:150px;">
 
             <h1>{{ thing.title }}</h1>
-            <p class="lead">{{ thing.text }}</p>
-            <div class="caption" style="margin-top: 30px;">
-                        <h4>by {{ thing.author }}</h4>
+            <h3 class="lead">{{ thing.text }}</h3>
+            <h4>by {{ thing.author }}</h4>
 
-            </div>
+            <form action="{% url 'the_things_list:thing-contact' thing.pk %}">
+                <button type="submit" href="{% url 'the_things_list:thing-contact' thing.pk %}"
+                        class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                </button>
+            </form>
+
         </div>
     </div>
 {% endblock %}

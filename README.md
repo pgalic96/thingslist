@@ -21,15 +21,3 @@ If the `models.py` file is updated, you first want to run:
 python manage.py makemigrations
 python manage.py migrate
 ```
-
-## Running Tests
-1. Start the server: `python manage.py runserver` 
-2. Start the RabbitMQ message broker by either doing `sudo rabbitmq-server` or `sudo /etc/init.d/rabbitmq start`
-2. Run the tests: 
-	* To run all project tests type
-	`python manage.py test`
-	* You can also run just a single test class or method, such as
-	`python manage.py test api.tests.LoginViewTest` or `python manage.py test api.tests.LoginViewTest.test_correct_login`
-
-
-

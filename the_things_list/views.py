@@ -1,9 +1,10 @@
+from django.contrib.sites.models import Site
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.utils.crypto import get_random_string
 from django.views import generic
-from django.contrib.sites.models import Site
+
 from .forms import ContactForm
 from .models import Thing
 
@@ -17,6 +18,7 @@ class HomeView(generic.ListView):
     context_object_name = 'all_things'
 
     def get_queryset(self):
+        # Getting all Thing objects in the home page ordered by the last edit
         return Thing.objects.all().order_by('lastEdit')
 
 
@@ -75,11 +77,15 @@ class UpdateThing(generic.edit.UpdateView):
     fields = ['title', 'text']
     template_name = 'the_things_list/updatething_form.html'
 
-    # override get_object method such that we can use random token instead of pk in link
+    # Override get_object() method such that we can use random token instead of pk in link
     def get_object(self, queryset=None):
         return Thing.objects.get(random_str=self.kwargs.get('random_str'))
 
-
+"""
+Generic View with for contacting the author of Thing.
+Uses get() method to get the Thing object for which the user wants to contact the author.
+Uses post() method to send an e-mail to the author of the Thing.
+"""
 class ContactView(generic.View):
     template_name = 'the_things_list/contact_form_template.html'
     form_class = ContactForm

@@ -22,3 +22,4 @@ python manage.py migrate
 `python manage.py createsuperuser`
 ## Run the server
 `python manage.py runserver`
+Open localhost:8000 on your browser to view the app.

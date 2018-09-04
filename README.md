@@ -18,8 +18,13 @@ python manage.py makemigrations
 python manage.py migrate
 
 ```
+
+## Obtain a secret key
+1. [Generate a key here](https://www.miniwebtool.com/django-secret-key-generator/)
+2. Copy and paste the link in `settings.py` under `SECRET_KEY`
+
 ## Create admin account
 `python manage.py createsuperuser`
 ## Run the server
-`python manage.py runserver`
-Open localhost:8000 on your browser to view the app.
+1. Run `python manage.py runserver`
+2. Open localhost:8000 on your browser to view the app.

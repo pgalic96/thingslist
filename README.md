@@ -14,7 +14,6 @@ source env/bin/activate
 
 ## Migrate the database
 ```
-python manage.py makemigrations
 python manage.py migrate
 
 ```

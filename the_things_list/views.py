@@ -81,11 +81,14 @@ class UpdateThing(generic.edit.UpdateView):
     def get_object(self, queryset=None):
         return Thing.objects.get(random_str=self.kwargs.get('random_str'))
 
+
 """
 Generic View with for contacting the author of Thing.
 Uses get() method to get the Thing object for which the user wants to contact the author.
 Uses post() method to send an e-mail to the author of the Thing.
 """
+
+
 class ContactView(generic.View):
     template_name = 'the_things_list/contact_form_template.html'
     form_class = ContactForm

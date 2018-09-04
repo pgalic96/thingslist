@@ -13,7 +13,7 @@
         {% for thing in all_things %}
             <div class="col-sm-4 col-lg-2">
                 <div class="thumbnail" >
-                    <center><a href="{% url 'the_things_list:thing-details' thing.id %}">{{ thing.title }} </a></center>
+                    <center><a href="{% url 'the_things_list:thing-details' thing.id%}">{{ thing.title }} </a></center>
                     <div class="caption" style="margin-top: 30px;">
                         <h4>by {{ thing.author }}</h4>
                         <p>Last edit on: {{ thing.lastEdit }}</p>

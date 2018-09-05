@@ -11,7 +11,7 @@ A web application that lets you post Things, and respond to other people's Thing
 virtualenv env
 source env/bin/activate
 ```
-## Go to project directory and install the project dependencies (Django 1.10):
+## Install the project dependencies (Django 1.10):
 `pip3 install -r requirements.txt`
 
 ## Migrate the database
@@ -22,7 +22,7 @@ python3 manage.py migrate
 
 ## Obtain a secret key
 1. [Generate a key here](https://www.miniwebtool.com/django-secret-key-generator/)
-2. Copy and paste the link in `settings.py` under `SECRET_KEY`
+2. Copy and paste the key in `settings.py` under `SECRET_KEY`
 
 ## Create admin account
 `python3 manage.py createsuperuser`
